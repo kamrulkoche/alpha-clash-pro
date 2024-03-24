@@ -18,6 +18,7 @@ function removeBackgroundColorById(elementId) {
     element.classList.remove('bg-orange-400')
 }
 
+
 function getARandomAlphabet() {
     //get or create an alphabet array
     const alphabetsString = 'abcdefghijklmnopqrstuvwxyz';
