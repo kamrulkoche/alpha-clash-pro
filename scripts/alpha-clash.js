@@ -29,5 +29,6 @@ function continueGame() {
 function play() {
     hideElementById('home-screen');
     showElementById('play-ground');
+    setBackgroundColorById('p')
     continueGame();
 }
