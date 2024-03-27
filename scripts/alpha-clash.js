@@ -21,11 +21,11 @@ function handleKeyboardKeyUpEvent(event) {
   //console.log(currentAlphabetElement.innerText);
   const currentAlphabet = currentAlphabetElement.innerText;
   const expectedAlphabet = currentAlphabet.toLowerCase();
-  console.log(playerPressed, expectedAlphabet);
+  //console.log(playerPressed, expectedAlphabet);
 
   //check matched or not
   if (playerPressed === expectedAlphabet) {
-    console.log("You get a point");
+    //console.log("You get a point");
 
     const currentScore = getTextElementValueByID("current-score");
     console.log(currentScore);
@@ -51,11 +51,15 @@ function handleKeyboardKeyUpEvent(event) {
     removeBackgroundColorById(expectedAlphabet);
     continueGame();
   } else {
-    console.log("You missed.You loss a life");
+    // console.log("You missed.You loss a life");
     const currentLife = getTextElementValueByID("current-life");
     const updatedLife = currentLife - 1;
     setTextElementValueByID("current-life", updatedLife);
 
+    if (updatedLife == 0) {
+      //console.log("Game Over");
+      gameOver();
+    }
     //1.get the current score
     // const currentLifeElement = document.getElementById("current-life");
     // const currentLifeText = currentLifeElement.innerText;
@@ -89,4 +93,9 @@ function play() {
   showElementById("play-ground");
   //setBackgroundColorById("");
   continueGame();
+}
+
+function gameOver() {
+  hideElementById("play-ground");
+  showElementById("final-score")
 }
